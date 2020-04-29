@@ -1,6 +1,8 @@
 # HTTP over WebSocket
 
-The aim of this project is configure an environment to tunnel HTTP requests through
+The aim of this project is configure an environment to tunnel HTTP requests through a WebSocket tunnel in order to avoid network restrictions to access some resources that can be accessed in other endpoint.
+
+Full admin access to all endpoints is needed.
 
 ## Commands
 
