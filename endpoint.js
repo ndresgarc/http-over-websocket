@@ -18,28 +18,30 @@ fs.readFile('config.json', (error, data) => {
 
 /* INIT */
 function init(config) {
-  // socket = new ws(config.url);
+  socket = new ws(config.websocket.url);
   console.log(config);
   console.log(config.websocket.url);
   console.log(config.endpoint.id);
 
-  connection.onopen = () => {
-    connection.send(id + '-' + 'Message From Client');
-    connection.send(id + '-' + 'get-web');
+  socket.onopen = () => {
+    socket.send(config.endpoint.id + '-' + 'Message From Client');
+    socket.send(config.endpoint.id + '-' + 'get-web');
+    console.log(config.endpoint.id + ' > message sent');
   }
    
-  connection.onerror = (error) => {
+  socket.onerror = (error) => {
     console.log(`WebSocket error: ${error}`);
+    console.log(error);
   }
    
-  connection.onmessage = (e) => {
+  socket.onmessage = (e) => {
     console.log(e.data);
   }
 
 }
 
 /* HANDLERS */
-function () {
+function handler() {
   
 }
 

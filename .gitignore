@@ -1,3 +1,4 @@
 node_modules/
 FirefoxPortable*
 .vscode/
+config.json
