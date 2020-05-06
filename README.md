@@ -8,13 +8,16 @@ Full admin access to all endpoints is needed.
 
 <dl>
 
-  <dt>http-get</dt>
+  <dt>http</dt>
   <dd>Performs an HTTP request using the other endpoint as an HTTP proxy</dd>
 
-  <dt>file-get</dt>
-  <dd>Gets a file from the other endpoint</dd>
-
-  <dt>file-put</dt>
-  <dd>Transfers a file to the other endpoint</dd>
-
 </dl>
+
+## Configuration
+
+### Firefox
+
+Using Firefox Portable:
+https://portableapps.com/apps/internet/firefox_portable
+
+Burger menu > Options > General > Network settings > Proxy
