@@ -1,0 +1,8 @@
+{
+    "websocket": {
+        "url": "ws://34.68.136.97:80"
+    },
+    "endpoint": {
+        "id": "dev"
+    }
+}

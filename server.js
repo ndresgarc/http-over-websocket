@@ -1,41 +1,33 @@
-const WebSocket = require('ws');
- 
-const wss = new WebSocket.Server({ port: 8080 });
- 
-function getWeb() {
 
-    return "Your web response";
+'use strict';
 
-}
+/* REQUIRE */
+const ws = require('ws');
+const fs = require('fs');
+const http = require('http');
+const httpProxy = require('http-proxy');
 
-wss.on('connection', ws => {
-  ws.on('message', message => {
-    console.log(`Received message => ${message}`);
+/* GLOBAL */
+let config = {};
+let server = new ws.Server({ port: 80 });
 
-    if (message == '2-get-web') {
-        wss.clients.forEach(function each(client) {
-            if (client !== ws && client.readyState === WebSocket.OPEN) {
-                client.send('message for 1');
-              }
-          });
-    }
-
-    if (message == '1-get-web') {
-        wss.clients.forEach(function each(client) {
-            if (client !== ws && client.readyState === WebSocket.OPEN) {
-                client.send('message for 2');
-              }
-          });
-    }
-
-    if (message.indexOf('get-web') > -1) {
-        wss.clients.forEach(function each(client) {
-            if (client.readyState === WebSocket.OPEN) {
-                client.send('message for everyone');
-              }
-          });
-    }
-
-  })
-  ws.send('Hello! Message From Server!!');
+/* CONFIG */
+fs.readFile('config.json', (error, data) => {
+    if (error) throw error;
+    config = JSON.parse(data);
+    init(config);
 });
+
+/* INIT */
+function init(config) {
+    server.on('connection', socket => {
+        socket.on('message', message => {
+            console.log(`Received message => ${message}`);
+            wss.clients.forEach(function each(client) {
+                client.send(message);
+            });
+        })
+        socket.send(config.server.id + ' : echo' );
+    });
+}
+ 
