@@ -4,7 +4,7 @@
   "description": "The aim of this project is configure an environment to tunnel HTTP requests through a WebSocket tunnel in order to avoid network restrictions to access some resources that can be accessed in other endpoint.",
   "main": "endpoint.js",
   "dependencies": {
-    "http-proxy": "^1.18.0",
+    "http-proxy": "^1.18.1",
     "https-proxy-agent": "^5.0.0",
     "ws": "^7.2.5"
   },
