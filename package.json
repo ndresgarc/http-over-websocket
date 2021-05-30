@@ -6,7 +6,7 @@
   "dependencies": {
     "http-proxy": "^1.18.1",
     "https-proxy-agent": "^5.0.0",
-    "ws": "^7.2.5"
+    "ws": "^7.4.6"
   },
   "devDependencies": {},
   "scripts": {
